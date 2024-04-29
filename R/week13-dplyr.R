@@ -54,6 +54,13 @@ manager_locations <- week13_tbl %>%
   ) %>%
   print()
 
+#print summary table with means and sds for years employed grouped by performance level
+years_and_level <- week13_tbl %>% 
+  group_by(performance_group) %>% 
+  summarize(Mean_Employment_Years = mean(yrs_employed),
+            SD_Employment_Years = sd(yrs_employed)) %>%
+  print()
+
 #print summary table with only people who were hired as managers split by location
 manager_scores_by_type <- week13_tbl %>%
   select(type, employee_id, test_score) %>% #only select columsn included in assignment
